@@ -1,0 +1,81 @@
+ARCHITECTURE GÉNÉRIQUE D'UN SDR (Software Defined Radio)
+========================================================
+
+                ┌─────────────────────────────────────────────────┐
+                │                 ANTTENE                         │
+                │                                                 │
+                │  Capture/émission des ondes électromagnétiques  │
+                └─────────────────┬───────────────────────────────┘
+                                  │
+                                  ▼
+                ┌─────────────────────────────────────────────────┐
+                │            FRONT-END RF                         │
+                │                                                 │
+                │  • Filtres passe-bande                          │
+                │  • Amplificateurs faible bruit (LNA)            │
+                │  • Mélangeurs (up/down conversion)              │
+                │  • Atténuateurs                                 │
+                └─────────────────┬───────────────────────────────┘
+                                  │
+                                  ▼
+                ┌─────────────────────────────────────────────────┐
+                │         CONVERTISSEURS A/N et N/A              │
+                │                                                 │
+                │  ADC: Analog → Digital (jusqu'à 16 bits)        │
+                │  DAC: Digital → Analog (jusqu'à 16 bits)        │
+                │  Fréquences: jusqu'à plusieurs GHz             │
+                │  Bande passante: MHz à GHz                     │
+                └─────────────────┬───────────────────────────────┘
+                                  │
+                                  ▼
+                ┌─────────────────────────────────────────────────┐
+                │         TRAITEMENT NUMÉRIQUE                    │
+                │                                                 │
+                │  ┌─────────────────────────────────────────┐    │
+                │  │        FPGA / DSP / CPU                  │    │
+                │  │                                         │    │
+                │  │  • Filtrage numérique (FIR/IIR)         │    │
+                │  │  • Modulation/démodulation              │    │
+                │  │  • Synchronisation                       │    │
+                │  │  • Correction d'erreurs                  │    │
+                │  │  • FFT / Analyse spectrale               │    │
+                │  │  • Codage/décodage canal                 │    │
+                │  └─────────────────────────────────────────┘    │
+                └─────────────────┬───────────────────────────────┘
+                                  │
+                                  ▼
+                ┌─────────────────────────────────────────────────┐
+                │         LOGICIEL DE CONTRÔLE                   │
+                │                                                 │
+                │  • GNU Radio (flowgraphs)                       │
+                │  • SDR++ / SDR#                                 │
+                │  • Scripts Python/MATLAB                        │
+                │  • Interfaces utilisateur                       │
+                └─────────────────┬───────────────────────────────┘
+                                  │
+                                  ▼
+                ┌─────────────────────────────────────────────────┐
+                │         APPLICATIONS UTILISATEUR               │
+                │                                                 │
+                │  • Réception radio FM/AM                        │
+                │  • Analyse spectrale                            │
+                │  • Transmission de données                      │
+                │  • Radio logicielle expérimentale              │
+                └─────────────────────────────────────────────────┘
+
+LÉGENDES:
+═════════
+RF = Radio Frequency (fréquences radio)
+IF = Intermediate Frequency (fréquence intermédiaire)
+ADC = Analog-to-Digital Converter
+DAC = Digital-to-Analog Converter
+FPGA = Field Programmable Gate Array
+DSP = Digital Signal Processor
+
+FLUX DE DONNÉES (RÉCEPTION):
+═══════════════════════════
+Antenne → Front-end RF → ADC → Traitement numérique → Logiciel → Application
+
+FLUX DE DONNÉES (ÉMISSION):
+═══════════════════════════
+Application → Logiciel → Traitement numérique → DAC → Front-end RF → Antenne

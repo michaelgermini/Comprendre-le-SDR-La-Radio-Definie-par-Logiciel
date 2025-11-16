@@ -1,0 +1,134 @@
+MODULATIONS NUMÉRIQUES - Comparaison
+=====================================
+
+ASK (Amplitude Shift Keying) - Modulation d'amplitude
+═══════════════════════════════════════════════════════
+
+Bits: 0 1 0 1 0 0 1 1
+      │ │ │ │ │ │ │ │
+      ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼
+
+Amplitude: 0V pour bit 0, +1V pour bit 1
+
+Signal:     ┌─────┐     ┌─────┐         ┌─────┐
+           ┌┘     └┐   ┌┘     └┐       ┌┘     └┐
+          ├┐       ├───├┐       ├───────├┐       ├───────
+          └┘       │   └┘       │       └┘       │
+                   └───────────┘                 └───────
+
+Avantages: Simple à implémenter
+Inconvénients: Sensible au bruit et aux variations d'amplitude
+
+FSK (Frequency Shift Keying) - Modulation de fréquence
+═══════════════════════════════════════════════════════
+
+Bits: 0 1 0 1 0 0 1 1
+      │ │ │ │ │ │ │ │
+      ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼
+
+Fréquence: f1 pour bit 0, f2 pour bit 1
+
+Signal:     ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐   ┌───┐
+           ┌┘   └┐ ┌┘   └┐ ┌┘   └┐ ┌┘   └┐ ┌┘   └┐ ┌┘   └┐ ┌┘
+          ├┐     ├──┘     ├──┘     ├──┘     ├──┘     ├──┘     ├┐
+          └┘     │       │       │       │       │       │ └┘
+                 └───────┘       └───────┘       └───────┘
+
+Avantages: Bonne immunité au bruit, détectable par filtre
+Inconvénients: Bande passante plus large
+
+PSK (Phase Shift Keying) - Modulation de phase
+═══════════════════════════════════════════════
+
+BPSK (Binary PSK):
+Bits: 0 1 0 1 0 0 1 1
+      │ │ │ │ │ │ │ │
+      ▼ ▼ ▼ ▼ ▼ ▼ ▼ ▼
+
+Phase: 0° pour bit 0, 180° pour bit 1
+
+Signal:     ┌─────┐     ┌─────┐         ┌─────┐
+           ┌┘     └┐   ┌┘     └┐       ┌┘     └┐
+          ├┐       ├───├┐       ├───────├┐       ├───────
+          └┘       │   └┘       │       └┘       │
+                   └───────────┘                 └───────
+
+QPSK (Quadrature PSK):
+Bits: 00 01 11 10 00 01 11 10
+       │  │  │  │  │  │  │  │
+       ▼  ▼  ▼  ▼  ▼  ▼  ▼  ▼
+
+Phase: 45° 135° 225° 315° 45° 135° 225° 315°
+
+Constellation QPSK:
+          01 (135°)
+          •
+    00 •       • 11 (225°)
+    (45°)         (315°)
+          •
+          10 (315°)
+
+Avantages: Efficacité spectrale, robustesse
+Inconvénients: Nécessite synchronisation de phase
+
+QAM (Quadrature Amplitude Modulation)
+═══════════════════════════════════════
+
+16-QAM (4 bits par symbole):
+Constellation:
+    2  2  2  2
+  ┌─┬─┬─┬─┐
+2 │•│•│•│•│
+  ├─┼─┼─┼─┤
+0 │•│•│•│•│
+  ├─┼─┼─┼─┤
+-2│•│•│•│•│
+  └─┴─┴─┴─┘
+   -2 0 2  4
+
+Chaque point = combinaison amplitude I + j*amplitude Q
+16 combinaisons = 4 bits de données
+
+Avantages: Très haute efficacité spectrale
+Inconvénients: Sensible au bruit, nécessite égalisation
+
+OFDM (Orthogonal Frequency Division Multiplexing)
+═══════════════════════════════════════════════════
+
+Principe: Division du canal en multiples sous-porteuses orthogonales
+
+Canal: ┌─────────────────────────────────────────────────────────┐
+       │                                                         │
+       │  f₁    f₂    f₃    f₄    f₅    f₆    f₇    f₈           │
+       │  │     │     │     │     │     │     │     │           │
+       │ ┌─────┐│─────││─────││─────││─────││─────││─────│     │
+       │ └─────┘└─────┘└─────┘└─────┘└─────┘└─────┘└─────┘     │
+       └─────────────────────────────────────────────────────────┘
+
+Chaque sous-porteuse transporte des données modulées (QPSK, QAM, etc.)
+
+Avantages: Résistance aux échos, efficacité spectrale
+Inconvénients: Complexité, sensibilité aux offsets de fréquence
+
+TABLEAU COMPARATIF
+═══════════════════
+
+│ Modulation │ Bits/symbole │ Efficacité spectrale │ Robustesse bruit │ Complexité │
+├────────────┼──────────────┼──────────────────────┼───────────────────┼────────────┤
+│ ASK        │ 1            │ Faible               │ Faible            │ Faible     │
+│ FSK        │ 1            │ Moyenne              │ Moyenne           │ Moyenne    │
+│ BPSK       │ 1            │ Bonne                │ Bonne             │ Moyenne    │
+│ QPSK       │ 2            │ Excellente           │ Bonne             │ Moyenne    │
+│ 16-QAM     │ 4            │ Excellente           │ Moyenne           │ Élevée     │
+│ 64-QAM     │ 6            │ Excellente           │ Faible            │ Élevée     │
+│ OFDM       │ Variable     │ Excellente           │ Excellente        │ Très élevée│
+
+APPLICATIONS COURANTES
+═══════════════════════
+
+• ASK: Télécommandes, RFID
+• FSK: Radio amateur, pager
+• BPSK: Satellite, GPS
+• QPSK: Télévision numérique, LTE
+• QAM: Câble, WiFi, DVB-T
+• OFDM: WiFi (802.11), LTE, DVB-T2

@@ -1,0 +1,207 @@
+# Constellations des Modulations Numériques
+
+## BPSK (Binary Phase Shift Keying)
+
+Constellation BPSK - 2 points sur l'axe réel :
+```
+            Quadrature (Q)
+              │
+              │
+        0°    │    180°
+     ●────────┼────────●
+              │
+              │
+            Réel (I)
+```
+
+- Distance entre points : √2
+- Probabilité d'erreur : Pe = Q(√(2Eb/N0))
+- Efficacité spectrale : 1 bit/symbole
+
+## QPSK (Quadrature Phase Shift Keying)
+
+Constellation QPSK - 4 points :
+```
+            Quadrature (Q)
+              │
+         90° ●   ● 0°
+              │
+       ───────┼───────
+              │
+        180° ●   ● 270°
+              │
+            Réel (I)
+```
+
+Points : (±1/√2, ±1/√2) normalisés
+- Efficacité : 2 bits/symbole
+- Robuste au bruit de phase
+
+## 8-PSK (8 Phase Shift Keying)
+
+Constellation 8-PSK - 8 points :
+```
+            Quadrature (Q)
+              │
+         ●    │    ●
+          ●   │   ●
+            ●─┼─●
+          ●   │   ●
+         ●    │    ●
+              │
+            Réel (I)
+```
+
+Points sur cercle unitaire, phases 0°, 45°, 90°, etc.
+- Efficacité : 3 bits/symbole
+- Utilisé dans EDGE, GSM évolué
+
+## 16-QAM (16 Quadrature Amplitude Modulation)
+
+Constellation 16-QAM - grille 4x4 :
+```
+      Q
+  3 │ ● ● ● ●
+  2 │ ● ● ● ●
+  1 │ ● ● ● ●
+  0 │ ● ● ● ●
+ -1 │ ● ● ● ●
+ -2 │ ● ● ● ●
+ -3 │ ● ● ● ●
+    └───────── I
+     -3-2-1 0 1 2 3
+```
+
+- 16 combinaisons d'amplitude et phase
+- Efficacité : 4 bits/symbole
+- Utilisé en WiFi, câble, LTE
+
+## 64-QAM (64 Quadrature Amplitude Modulation)
+
+Constellation 64-QAM - grille 8x8 :
+```
+Densité de points plus élevée, 64 positions
+Distance entre points réduite = sensibilité accrue au bruit
+Efficacité : 6 bits/symbole
+Utilisé en DOCSIS 3.1, WiFi 802.11ac/ax
+```
+
+## 256-QAM (256 Quadrature Amplitude Modulation)
+
+Constellation ultra-dense pour débits maximaux :
+```
+256 points en grille 16x16
+Distance minimale très faible
+Efficacité : 8 bits/symbole
+Utilisé en DOCSIS 3.1, WiFi 802.11ax
+Très sensible au bruit et distorsions
+```
+
+## Comparaison des Efficacités Spectrales
+
+```
+Modulation │ Bits/symbole │ Bande requise │ Usage typique
+───────────┼──────────────┼───────────────┼──────────────
+BPSK       │ 1            │ Large         │ Satellite, GPS
+QPSK       │ 2            │ Moyenne       │ Télévision, LTE
+8-PSK      │ 3            │ Moyenne       │ EDGE, CDMA2000
+16-QAM     │ 4            │ Optimale      │ WiFi, câble
+64-QAM     │ 6            │ Étroite       │ DOCSIS, LTE-A
+256-QAM    │ 8            │ Minimale      │ 5G, fibre coax
+```
+
+## Effet du Bruit sur les Constellations
+
+### Signal propre (haut SNR)
+```
+Points bien séparés, décision claire
+●   ●
+  ●
+```
+
+### Signal bruité (bas SNR)
+```
+Points étalés, erreurs possibles
+●◦●
+ ◦◦
+```
+
+### Distorsion de phase
+```
+Rotation de la constellation
+  ●
+●   ◦
+```
+
+### Déséquilibre IQ
+```
+Ellipse au lieu de cercle
+   ●
+ ●   ◦
+```
+
+## Paramètres de Performance
+
+### Rapport Eb/N0 requis (BER = 10^-5)
+- BPSK : 9.6 dB
+- QPSK : 9.6 dB (même que BPSK)
+- 16-QAM : 14.5 dB
+- 64-QAM : 18.8 dB
+- 256-QAM : 24.2 dB
+
+Plus la constellation est dense, plus le SNR requis est élevé !
+
+## Applications Pratiques
+
+### Télécommunications
+- **GSM** : GMSK (variant de MSK)
+- **EDGE** : 8-PSK
+- **LTE** : QPSK à 256-QAM
+- **5G** : QPSK à 256-QAM + Massive MIMO
+
+### Broadcasting
+- **DVB-T** : QPSK, 16-QAM, 64-QAM
+- **DVB-S2** : QPSK, 8-PSK, 16-APSK
+- **DOCSIS** : 16-QAM à 4096-QAM
+
+### WiFi
+- **802.11a/g** : BPSK, QPSK, 16-QAM, 64-QAM
+- **802.11n** : + 256-QAM
+- **802.11ac/ax** : jusqu'à 1024-QAM
+
+## Implémentation en SDR
+
+### Génération de constellation
+```python
+import numpy as np
+import matplotlib.pyplot as plt
+
+def generate_qam_constellation(M):
+    """Génère constellation M-QAM"""
+    if M == 4:  # QPSK
+        return np.array([
+            1+1j, -1+1j, -1-1j, 1-1j
+        ]) / np.sqrt(2)
+    elif M == 16:  # 16-QAM
+        # Grille 4x4 normalisée
+        pass
+    # etc.
+
+# Affichage
+constellation = generate_qam_constellation(16)
+plt.scatter(constellation.real, constellation.imag)
+plt.grid(True)
+plt.axis('equal')
+plt.show()
+```
+
+### Égalisation adaptative
+Pour compenser les distorsions de canal :
+- **Algorithme LMS** : Least Mean Squares
+- **Algorithme RLS** : Recursive Least Squares
+- **Égaliseur CMA** : Constant Modulus Algorithm
+
+### Synchronisation
+- **Synchronisation fréquentielle** : Correction Doppler
+- **Synchronisation temporelle** : Détection de début de symbole
+- **Synchronisation de phase** : Correction de rotation de phase

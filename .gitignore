@@ -1,0 +1,93 @@
+# Git ignore pour projet SDR/documentation
+
+# Fichiers temporaires
+*.tmp
+*.temp
+*~
+
+# Logs
+*.log
+logs/
+*.log.*
+
+# Dossiers build/compilation
+build/
+dist/
+*.build
+*.exe
+
+# Environnements virtuels Python
+venv/
+env/
+ENV/
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.pytest_cache/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# MATLAB
+*.asv
+*.mex*
+*.fig
+
+# GNU Radio
+*.grc.bak
+*.out
+
+# IDE et éditeurs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Système d'exploitation
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Données sensibles
+config/secrets.json
+*.key
+*.pem
+private/
+
+# Captures et données temporaires
+captures/
+temp/
+data/
+
+# Documentation générée
+docs/_build/
+*.pdf
+*.epub
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Sauvegardes
+*.bak
+*.backup
+*.old
