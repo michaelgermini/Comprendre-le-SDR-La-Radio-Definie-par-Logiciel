@@ -58,6 +58,7 @@ Ce livre offre une **introduction complète et scientifique** à la Radio Défin
 | [**WRC-27 SDR Impact**](annexes/wrc27_sdr_impact.md) | **NOUVEAU** : Impact sur écosystème SDR | Préparation communautaire |
 | [**Communications maritimes**](annexes/communications_maritimes.md) | **NOUVEAU** : MF/VHF maritime | Sécurité navigation |
 | [**MML & DNF Révolution**](annexes/mml_dnf_revolution.md) | **NOUVEAU** : Protocoles résilients | Communications critiques |
+| [**WRC-27 Conférence**](annexes/wrc27_conference_2027.md) | **NOUVEAU** : Agenda complet | Tout ce qui sera discuté |
 
 ### 🎯 Points forts des annexes
 
@@ -68,6 +69,7 @@ Ce livre offre une **introduction complète et scientifique** à la Radio Défin
 | [**WRC-27 SDR Impact**](annexes/wrc27_sdr_impact.md) | **NOUVEAU** : Impact sur écosystème SDR | Préparation communautaire |
 | [**Communications maritimes**](annexes/communications_maritimes.md) | **NOUVEAU** : MF/VHF maritime, sécurité navigation | Applications pratiques |
 | [**MML & DNF Révolution**](annexes/mml_dnf_revolution.md) | **NOUVEAU** : Protocoles résilients, réseaux décentralisés | Avenir communications |
+| [**WRC-27 Conférence**](annexes/wrc27_conference_2027.md) | **NOUVEAU** : Agenda complet 12 items, 30+ sujets | Vue d'ensemble exhaustive |
 | [**Glossaire complet**](annexes/glossaire_complet.md) | 200+ termes techniques | Référence rapide |
 | [**Matériel par budget**](annexes/materiel_budget.md) | Conseils 50€-1000€+ | Choix optimal |
 | [**Flows GNU Radio**](annexes/flows_gnuradio.md) | 5 flows opérationnels | Tutoriels pratiques |
