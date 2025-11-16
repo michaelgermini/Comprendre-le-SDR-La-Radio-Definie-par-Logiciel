@@ -55,6 +55,7 @@ Ce livre offre une **introduction complète et scientifique** à la Radio Défin
 | [**Flows GNU Radio**](annexes/flows_gnuradio.md) | 5 flows complets | Tutoriels graphiques |
 | [**Ressources communautaires**](annexes/ressources_communautaires.md) | Forums, événements | Écosystème SDR |
 | [**WRC-27 (2027)**](annexes/wrc27_2027_thz_spatial.md) | **NOUVEAU** : Bandes THz, spatial | Avenir réglementaire |
+| [**Communications maritimes**](annexes/communications_maritimes.md) | **NOUVEAU** : MF/VHF maritime | Sécurité navigation |
 
 ### 🎯 Points forts des annexes
 
@@ -62,6 +63,7 @@ Ce livre offre une **introduction complète et scientifique** à la Radio Défin
 |--------|------------|----------|
 | [**Fréquences internationales**](annexes/table_frequences_internationales.md) | **Enrichi 2025** : IoT, 5G/6G, drones, spatial, recherche | Guide complet mondial |
 | [**WRC-27 (2027)**](annexes/wrc27_2027_thz_spatial.md) | **NOUVEAU** : Bandes THz, communications spatiales | Vision prospective |
+| [**Communications maritimes**](annexes/communications_maritimes.md) | **NOUVEAU** : MF/VHF maritime, sécurité navigation | Applications pratiques |
 | [**Glossaire complet**](annexes/glossaire_complet.md) | 200+ termes techniques | Référence rapide |
 | [**Matériel par budget**](annexes/materiel_budget.md) | Conseils 50€-1000€+ | Choix optimal |
 | [**Flows GNU Radio**](annexes/flows_gnuradio.md) | 5 flows opérationnels | Tutoriels pratiques |
