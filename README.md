@@ -55,6 +55,15 @@ Ce livre offre une **introduction complète et scientifique** à la Radio Défin
 | [**Flows GNU Radio**](annexes/flows_gnuradio.md) | 5 flows complets | Tutoriels graphiques |
 | [**Ressources communautaires**](annexes/ressources_communautaires.md) | Forums, événements | Écosystème SDR |
 
+### 🎯 Points forts des annexes
+
+| Annexe | Innovation | Bénéfice |
+|--------|------------|----------|
+| [**Fréquences internationales**](annexes/table_frequences_internationales.md) | **Enrichi 2025** : IoT, 5G/6G, drones, spatial, recherche | Guide complet mondial |
+| [**Glossaire complet**](annexes/glossaire_complet.md) | 200+ termes techniques | Référence rapide |
+| [**Matériel par budget**](annexes/materiel_budget.md) | Conseils 50€-1000€+ | Choix optimal |
+| [**Flows GNU Radio**](annexes/flows_gnuradio.md) | 5 flows opérationnels | Tutoriels pratiques |
+
 ### 🔧 Ressources pratiques
 
 | Type | Contenu | Langage |
